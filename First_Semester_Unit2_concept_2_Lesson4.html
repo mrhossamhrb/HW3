@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Second Semester - Lesson 4</title>
+<title>First_Semester_Unit2_concept_2_Lesson4</title>
 
 <style>
 body{
@@ -63,15 +63,23 @@ button{
   margin-bottom:15px;
 }
 .show #infoBox{display:block}
+.inline{
+  width:150px;
+  margin:0 5px;
+  padding:5px;
+  border-radius:8px;
+  border:none;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>Second Semester - Lesson 1</header>
+<header>First_Semester_Unit2_concept_2_Lesson4</header>
 
 <section>
-<h2>Unit 4 – Concept 1</h2>
+<h2>First_Semester_Unit2_concept_2_Lesson4</h2>
 <p>حل الواجب ثم احفظه كصورة 📸</p>
 </section>
 
@@ -92,9 +100,16 @@ button{
 
 
 <!-- أكمل -->
-<div class='question'><h3>1 We can remove sea weeds from ocean's water by using______a process, just as we remove salt from ocean's water by ______</h3>
-<input type='text' id='q1'>
-<div class='feedback' id='f1'></div></div>
+<div class="question">
+<h3>
+1) We can remove sea weeds from ocean's water by using 
+<input type="text" id="q1a" class="inline"> 
+a process, just as we remove salt from ocean's water by 
+<input type="text" id="q1b" class="inline">
+</h3>
+<div class="feedback" id="f1"></div>
+</div>
+
 <div class='question'><h3>2 In marine food webs, algae is considered as______ a food source, while shark is considered a food source. ______</h3>
 <input type='text' id='q2'>
 <div class='feedback' id='f2'></div></div>
@@ -132,52 +147,82 @@ button{
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
 <script>
-function generateImage(){
-  const name=document.getElementById("studentName").value.trim();
-  if(!name){alert("اكتب الاسم");return;}
+  const LOCK_DAYS = 30;
+const STORAGE_KEY = "homework_locked";
 
-  let score=0;
-  const answers={
-    q1:"filtration - evaporation",
-    q2:"producer - consumer",
-    q3:"volume - temperature",
-    q4:"because in the ecosystem, all species depend on other species to survive, so an increase or decrease in one species affects the population of other species",
-    q5:"false",
-    q6:"The speed of particles will increase",
-    q7:"The number of producers decreases, while the number of secondary consumers increases",
-    q8:"b"
-  };
-
-  Object.keys(answers).forEach((q,i)=>{
-    const fb=document.getElementById("f"+(i+1));
-    if(q<="q5"){
-      const sel=document.querySelector(`input[name="${q}"]:checked`);
-      if(sel && sel.value===answers[q]){
-        score++; fb.innerHTML="✔ صحيح";
-      }else fb.innerHTML="✖ خطأ";
-    }else{
-      const val=document.getElementById(q).value.trim().toLowerCase();
-      if(val===answers[q]){
-        score++; fb.innerHTML="✔ صحيح";
-      }else fb.innerHTML="✖ خطأ";
+window.onload = function () {
+  const lockData = localStorage.getItem(STORAGE_KEY);
+  if (lockData) {
+    const savedTime = parseInt(lockData, 10);
+    const now = Date.now();
+    const diffDays = (now - savedTime) / (1000 * 60 * 60 * 24);
+    if (diffDays < LOCK_DAYS) {
+      lockHomework();
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
     }
-  });
+  }
+};
 
-  document.getElementById("imgName").textContent=name;
-  document.getElementById("imgScore").textContent=score+" / 7";
-  document.getElementById("imgDate").textContent=new Date().toLocaleString("ar-EG");
+function lockHomework() {
+  document.getElementById("saveBtn").disabled = true;
+  document.getElementById("saveBtn").innerText = "✔️ تم تسليم الواجب";
+  document.querySelectorAll("input").forEach(el => el.disabled = true);
+}
 
-  const area=document.getElementById("printArea");
+function generateImage(){
+
+  const name = document.getElementById("studentName").value.trim();
+  if(!name){
+    alert("اكتب الاسم");
+    return;
+  }
+
+  let score = 0;
+
+  /* ===== سؤال له إجابتين ===== */
+  const a1 = document.getElementById("q1a").value.trim().toLowerCase();
+  const b1 = document.getElementById("q1b").value.trim().toLowerCase();
+  const f1 = document.getElementById("f1");
+
+  if(a1 === "filtration" && b1 === "evaporation"){
+    score++;
+    f1.innerHTML = "✔ صحيح";
+  }else{
+    f1.innerHTML = "✖ خطأ";
+  }
+
+  /* ===== مثال سؤال صح / خطأ ===== */
+  const q5 = document.querySelector('input[name="q5"]:checked');
+  const f5 = document.getElementById("f5");
+
+  if(q5 && q5.value === "false"){
+    score++;
+    f5.innerHTML = "✔ صحيح";
+  }else{
+    f5.innerHTML = "✖ خطأ";
+  }
+
+  /* ===== عرض البيانات ===== */
+  document.getElementById("imgName").textContent = name;
+  document.getElementById("imgScore").textContent = score + " درجة";
+  document.getElementById("imgDate").textContent =
+    new Date().toLocaleString("ar-EG");
+
+  const area = document.getElementById("printArea");
   area.classList.add("show");
 
   html2canvas(area).then(canvas=>{
-    const a=document.createElement("a");
-    a.download="homework.png";
-    a.href=canvas.toDataURL();
+    const a = document.createElement("a");
+    a.download = "homework.png";
+    a.href = canvas.toDataURL();
     a.click();
     area.classList.remove("show");
+    lockHomework();
   });
+  
 }
+
 </script>
 
 </body>
