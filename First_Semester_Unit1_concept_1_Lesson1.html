@@ -370,49 +370,297 @@
     .show-correction .image-fill-feedback {
       display: block;
     }
+
+    /* تنسيق خاص لسؤال "ماذا يحدث إذا..." */
+    .what-if-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .what-if-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .what-if-item {
+      margin-bottom: 25px;
+    }
+
+    .what-if-item h4 {
+      color: #cbd5e1;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .what-if-textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 2px solid #4f46e5;
+      background: #1e293b;
+      color: white;
+      font-size: 17px;
+      line-height: 1.5;
+      resize: vertical;
+      outline: none;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    .what-if-textarea:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    }
+
+    .what-if-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .what-if-feedback {
+      display: block;
+    }
+
+    /* تنسيق خاص لسؤال سلسلة الطاقة */
+    .energy-chain-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .energy-chain-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .energy-chain-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .energy-chain-figure {
+      text-align: center;
+      margin: 10px;
+      padding: 15px;
+      background: #1e293b;
+      border-radius: 10px;
+      width: 100px;
+    }
+
+    .energy-chain-figure img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #3b82f6;
+      background: #111827;
+      padding: 5px;
+      margin-bottom: 8px;
+    }
+
+    .energy-chain-figure .figure-label {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .energy-chain-diagram {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .energy-chain-step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .chain-arrow {
+      font-size: 24px;
+      color: #60a5fa;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .chain-input {
+      width: 120px;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #111827;
+      color: white;
+      text-align: center;
+      outline: none;
+      margin: 0 5px;
+    }
+
+    .chain-input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+    }
+
+    .chain-label {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin: 0 10px;
+      min-width: 150px;
+    }
+
+    .energy-chain-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .energy-chain-feedback {
+      display: block;
+    }
   </style>
 </head>
 
 <body>
 
-  <header>First_Semester_Unit1_concept_1_Lesson1</header>
+  <header>Second_Semester_Unit4_concept_1_Lesson1</header>
 
   <section>
-    <img src="First_Semester.jpg" alt="صورة الدرس">
-    <h2>First_Semester_Unit1_concept_1_Lesson1</h2>
-    <p>حل الواجب التالي بعناية ثم احفظ نتيجتك كصورة!</p>
+    <img src="First_Semester.jpg" alt="Lesson Image">
+    <h2>Second_Semester_Unit4_concept_1_Lesson1</h2>
+    <p>Solve the following homework carefully then save your result as an image!</p>
   </section>
 
   <div class="container" id="printArea">
 
-    <h1>الواجب المنزلي</h1>
+    <h1>HOMEWORK</h1>
 
-    <div id="loading">⏳ جاري حفظ الصورة...</div>
+    <div id="loading">⏳ Saving image...</div>
 
     <div id="infoBox">
       <div class="info-row">
-        <div class="info-item">اسم الطالب: <strong id="imgName"></strong></div>
-        <div class="info-item">الدرجة: <strong id="imgScore"></strong></div>
-        <div class="info-item">التاريخ: <strong id="imgDate"></strong></div>
+        <div class="info-item">Student Name: <strong id="imgName"></strong></div>
+        <div class="info-item">Score: <strong id="imgScore"></strong></div>
+        <div class="info-item">Date: <strong id="imgDate"></strong></div>
       </div>
     </div>
 
     <div class="question">
-      <label>اسم الطالب:</label>
+      <label>Student Name:</label>
       <input type="text" id="studentName">
     </div>
-    <!-- ######################################## -->
+
+    <!-- سؤال 6: What happens if...? -->
+    <div class="what-if-question">
+      <h3>6. What happens if ...?</h3>
+      
+      <div class="what-if-item">
+        <h4>1. You use a mobile phone for a long time. (according to the wasted energy)</h4>
+        <textarea class="what-if-textarea" id="whatIf1" placeholder="Write your answer here..."></textarea>
+      </div>
+      
+      <div class="what-if-item">
+        <h4>2. You turn on an electric fan. (according to the change of energy)</h4>
+        <textarea class="what-if-textarea" id="whatIf2" placeholder="Write your answer here..."></textarea>
+      </div>
+      
+      <div class="what-if-feedback" id="fb-what-if"></div>
+    </div>
+
+    <!-- سؤال 7: سلسلة الطاقة مع صور -->
+    <div class="energy-chain-question">
+      <h3>7. Look at the following figures, then complete the following energy chain:</h3>
+      
+      <div class="energy-chain-container">
+        <div class="energy-chain-figure">
+          <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (1)</div>
+          <div class="figure-label">Figure (1)</div>
+        </div>
+        
+        <div class="energy-chain-figure">
+          <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (2)</div>
+          <div class="figure-label">Figure (2)</div>
+        </div>
+        
+        <div class="energy-chain-figure">
+          <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (3)</div>
+          <div class="figure-label">Figure (3)</div>
+        </div>
+        
+        <div class="energy-chain-figure">
+          <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (4)</div>
+          <div class="figure-label">Figure (4)</div>
+        </div>
+        
+        <div class="energy-chain-figure">
+          <div class="figure-placeholder" style="width: 80px; height: 80px; font-size: 12px;">Figure (5)</div>
+          <div class="figure-label">Figure (5)</div>
+        </div>
+      </div>
+      
+      <div class="energy-chain-diagram">
+        <div class="energy-chain-step">
+          <span class="chain-label">Energy in figure</span>
+          <input type="text" class="chain-input" id="chain1" placeholder="...">
+          <span class="chain-arrow">→</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+        
+        <div class="energy-chain-step">
+          <span class="chain-label">Chemical energy stored in figure</span>
+          <input type="text" class="chain-input" id="chain2" placeholder="...">
+          <span class="chain-arrow">→</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+        
+        <div class="energy-chain-step">
+          <span class="chain-label">Thermal energy and kinetic energy in figure</span>
+          <input type="text" class="chain-input" id="chain3" placeholder="...">
+        </div>
+        
+        <div class="energy-chain-step">
+          <span class="chain-label">Thermal energy that is produced from the device in figure</span>
+          <input type="text" class="chain-input" id="chain4" placeholder="...">
+          <span class="chain-arrow">→</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+        
+        <div class="energy-chain-step">
+          <span class="chain-label">Electrical energy that is travelled through figure</span>
+          <input type="text" class="chain-input" id="chain5" placeholder="...">
+          <span class="chain-arrow">→</span>
+          <span class="chain-label">Converted into</span>
+        </div>
+      </div>
+      
+      <div class="energy-chain-feedback" id="fb-energy-chain"></div>
+    </div>
+
     <!-- سؤال أكمل الفراغات مع صور -->
     <div class="image-fill-question">
       <h3>8. Look at the following figures, then complete the sentences:</h3>
       <div class="images-container">
         <div class="figure-box">
-          <img src="battery.jpg" alt="بطارية">
+          <div class="figure-placeholder">⚡ Battery</div>
           <div class="figure-label">Figure (1)</div>
         </div>
 
         <div class="figure-box">
-          <img src="lamp.jpg" alt="lamp">
+          <div class="figure-placeholder">💡 Lamp</div>
           <div class="figure-label">Figure (2)</div>
         </div>
       </div>
@@ -432,8 +680,8 @@
       </div>
       <div class="image-fill-feedback" id="fb-image-fill"></div>
     </div>
-    <!-- ######################################## -->
-    <!-- سؤال أكمل الفراغات (مع فراغ واحد) -->
+
+    <!-- سؤال أكمل الفراغات العادي -->
     <div class="fill-blank-question">
       <h3>4. Complete the following sentences:</h3>
 
@@ -442,8 +690,7 @@
         The energy produced from the battery and used to operate a toy car is
         <input type="text" class="blank-input" id="blank1" placeholder="......">energy.
       </div>
-      <!-- ######################################## -->
-      <!-- سؤال أكمل الفراغات (مع فراغين) -->
+
       <div class="blank-sentence">
         <span class="blank-number">2</span>
         When you press on the soap dispenser,
@@ -454,41 +701,37 @@
       </div>
       <div class="blank-feedback" id="fb-fill"></div>
     </div>
-    <!-- ######################################## -->
-    <!-- اختيار من متعدد (4 خيارات) -->
+
+    <!-- Multiple Choice Questions -->
     <div class="question">
       <h3>1) Helium is lighter than air; therefore:</h3>
-      <label><input type="radio" name="q1" value="a">physical property</label>
-      <label><input type="radio" name="q1" value="b">chemical property</label>
-      <label><input type="radio" name="q1" value="c">chemical change</label>
-      <label><input type="radio" name="q1" value="d">physical change</label>
+      <label><input type="radio" name="q1" value="a"> physical property</label>
+      <label><input type="radio" name="q1" value="b"> chemical property</label>
+      <label><input type="radio" name="q1" value="c"> chemical change</label>
+      <label><input type="radio" name="q1" value="d"> physical change</label>
       <div class="feedback" id="f1"></div>
     </div>
-    <!-- ######################################## -->
-    <!-- اختيار من متعدد (3 خيارات) -->
+
     <div class="question">
       <h3>3) Which of the following is considered an element:</h3>
-      <label><input type="radio" name="q3" value="a">Water</label>
-      <label><input type="radio" name="q3" value="b">hydrogen</label>
-      <label><input type="radio" name="q3" value="c">carbon dioxide</label>
+      <label><input type="radio" name="q3" value="a"> Water</label>
+      <label><input type="radio" name="q3" value="b"> Hydrogen</label>
+      <label><input type="radio" name="q3" value="c"> Carbon dioxide</label>
       <div class="feedback" id="f3"></div>
     </div>
-    <!-- ######################################## -->
-    <!-- صح أو خطأ -->
+
     <div class="question">
       <h3>5) Helium is an inert gas and does not react easily:</h3>
-      <label><input type="radio" name="q5" value="true"> true</label>
-      <label><input type="radio" name="q5" value="false"> false</label>
+      <label><input type="radio" name="q5" value="true"> True</label>
+      <label><input type="radio" name="q5" value="false"> False</label>
       <div class="feedback" id="f5"></div>
     </div>
-    <!-- ######################################## -->
 
-
-    <button id="saveBtn" onclick="generateImage()">📸 حفظ الواجب كصورة</button>
+    <button id="saveBtn" onclick="generateImage()">📸 Save Homework as Image</button>
 
     <a href="index.html" id="backBtn"
       style="display:inline-block; margin-top:20px; text-decoration:none; color:#111827; background:#60a5fa; padding:12px 25px; border-radius:12px;">⬅
-      العودة إلى الرئيسية</a>
+      Back to Home</a>
 
   </div>
 
@@ -513,8 +756,8 @@
 
     function lockHomework() {
       document.getElementById("saveBtn").disabled = true;
-      document.getElementById("saveBtn").innerText = "✔️ تم تسليم الواجب";
-      document.querySelectorAll("input").forEach(el => el.disabled = true);
+      document.getElementById("saveBtn").innerText = "✔️ Homework Submitted";
+      document.querySelectorAll("input, textarea").forEach(el => el.disabled = true);
     }
 
     function generateImage() {
@@ -522,7 +765,7 @@
 
       const name = document.getElementById("studentName").value.trim();
       if (!name) {
-        alert("اكتب اسم الطالب");
+        alert("Please enter student name");
         return;
       }
 
@@ -546,16 +789,25 @@
         imageBlank2: "electrical"
       };
 
+      // إجابات سؤال سلسلة الطاقة (يمكن تعديلها)
+      const chainAnswers = {
+        chain1: "1",
+        chain2: "2",
+        chain3: "3",
+        chain4: "4",
+        chain5: "5"
+      };
+
       // تصحيح أسئلة الاختيار من متعدد وصح/خطأ
       Object.keys(answers).forEach((q) => {
         const selected = document.querySelector(`input[name="${q}"]:checked`);
-        const fb = document.getElementById("f" + q.charAt(1)); // q1 -> f1, q3 -> f3, q5 -> f5
+        const fb = document.getElementById("f" + q.charAt(1));
         if (selected && selected.value === answers[q]) {
           score++;
-          fb.innerHTML = "✔️ إجابة صحيحة";
+          fb.innerHTML = "✔️ Correct answer";
           fb.style.color = "#10b981";
         } else {
-          fb.innerHTML = "❌ إجابة خاطئة";
+          fb.innerHTML = "❌ Wrong answer";
           fb.style.color = "#ef4444";
         }
       });
@@ -572,9 +824,9 @@
 
           if (userAnswer === correctAnswer) {
             fillScore++;
-            fillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ الفراغ ${index + 1}: صحيح</div>`;
+            fillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Blank ${index + 1}: Correct</div>`;
           } else {
-            fillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ الفراغ ${index + 1}: خطأ (الإجابة الصحيحة: ${blankAnswers[blankId]})</div>`;
+            fillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Blank ${index + 1}: Wrong (Correct answer: ${blankAnswers[blankId]})</div>`;
           }
         }
       });
@@ -591,28 +843,73 @@
 
           if (userAnswer === correctAnswer) {
             imageFillScore++;
-            imageFillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ الفراغ ${index + 1}: صحيح</div>`;
+            imageFillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Blank ${index + 1}: Correct</div>`;
           } else {
-            imageFillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ الفراغ ${index + 1}: خطأ (الإجابة الصحيحة: ${imageBlankAnswers[blankId]})</div>`;
+            imageFillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Blank ${index + 1}: Wrong (Correct answer: ${imageBlankAnswers[blankId]})</div>`;
           }
         }
       });
 
+      // تصحيح سؤال سلسلة الطاقة
+      let chainScore = 0;
+      let chainFeedback = "";
+
+      Object.keys(chainAnswers).forEach((chainId, index) => {
+        const input = document.getElementById(chainId);
+        if (input) {
+          const userAnswer = input.value.trim();
+          const correctAnswer = chainAnswers[chainId];
+
+          if (userAnswer === correctAnswer) {
+            chainScore++;
+            chainFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Step ${index + 1}: Correct</div>`;
+          } else {
+            chainFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Step ${index + 1}: Wrong (Correct answer: ${correctAnswer})</div>`;
+          }
+        }
+      });
+
+      // سؤال "What happens if..." - يمكن تصحيحه يدوياً أو إعطاء درجات تلقائية
+      const whatIf1 = document.getElementById("whatIf1").value.trim();
+      const whatIf2 = document.getElementById("whatIf2").value.trim();
+      let whatIfScore = 0;
+      let whatIfFeedback = "";
+
+      // إعطاء درجة إذا كان الطالب كتب إجابة (يمكن تعديل المعايير)
+      if (whatIf1.length > 10) {
+        whatIfScore++;
+        whatIfFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Question 1: Answer provided (manual check needed)</div>`;
+      } else {
+        whatIfFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Question 1: Please write a complete answer</div>`;
+      }
+
+      if (whatIf2.length > 10) {
+        whatIfScore++;
+        whatIfFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Question 2: Answer provided (manual check needed)</div>`;
+      } else {
+        whatIfFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Question 2: Please write a complete answer</div>`;
+      }
+
       // إضافة النتائج إلى الدرجة الكلية
-      score += fillScore + imageFillScore;
+      score += fillScore + imageFillScore + chainScore + whatIfScore;
 
       // عرض التغذية الراجعة
       document.getElementById("fb-fill").innerHTML =
-        `<strong>نتيجة أسئلة الفراغات: ${fillScore}/3</strong><br>` + fillFeedback;
+        `<strong>Fill in the blanks score: ${fillScore}/3</strong><br>` + fillFeedback;
 
       document.getElementById("fb-image-fill").innerHTML =
-        `<strong>نتيجة أسئلة الصور: ${imageFillScore}/2</strong><br>` + imageFillFeedback;
+        `<strong>Figure questions score: ${imageFillScore}/2</strong><br>` + imageFillFeedback;
+
+      document.getElementById("fb-energy-chain").innerHTML =
+        `<strong>Energy chain score: ${chainScore}/5</strong><br>` + chainFeedback;
+
+      document.getElementById("fb-what-if").innerHTML =
+        `<strong>"What happens if..." score: ${whatIfScore}/2</strong><br>` + whatIfFeedback;
 
       document.getElementById("imgName").textContent = name;
-      document.getElementById("imgScore").textContent = score + " / 8";
+      document.getElementById("imgScore").textContent = score + " / 15";
 
       const now = new Date();
-      // تنسيق التاريخ بشكل مختصر
       const dateStr = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
       const timeStr = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
       document.getElementById("imgDate").textContent = dateStr + " " + timeStr;
@@ -636,7 +933,7 @@
           logging: false
         }).then(canvas => {
           const link = document.createElement("a");
-          link.download = `واجب_${name}.png`;
+          link.download = `Homework_${name}.png`;
           link.href = canvas.toDataURL('image/png', 1.0);
           link.click();
 
@@ -647,7 +944,7 @@
           document.getElementById('backBtn').style.display = 'inline-block';
 
           // إعادة تعيين الفيدباك للإجابات
-          document.querySelectorAll('.feedback, .blank-feedback, .image-fill-feedback').forEach(fb => {
+          document.querySelectorAll('.feedback, .blank-feedback, .image-fill-feedback, .energy-chain-feedback, .what-if-feedback').forEach(fb => {
             fb.innerHTML = "";
             fb.style.color = "";
           });
@@ -656,7 +953,7 @@
           lockHomework();
 
         }).catch(error => {
-          console.error("خطأ في إنشاء الصورة:", error);
+          console.error("Error creating image:", error);
           area.classList.remove("show-correction");
           document.getElementById('loading').style.display = 'none';
           document.getElementById('saveBtn').style.display = 'block';
@@ -666,5 +963,4 @@
     }
   </script>
 </body>
-
 </html>
