@@ -532,6 +532,143 @@
     .show-correction .energy-chain-feedback {
       display: block;
     }
+
+    /* تنسيق خاص لسؤال الجدول (B) */
+    .match-table-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .match-table-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .matching-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      background: #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .matching-table th {
+      background: #3b82f6;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .matching-table td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #3b4252;
+      font-size: 18px;
+      color: #e2e8f0;
+    }
+
+    .matching-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matching-table .col-a {
+      background: rgba(59, 130, 246, 0.1);
+      font-weight: bold;
+    }
+
+    .matching-table .col-b, 
+    .matching-table .col-c {
+      background: rgba(30, 41, 59, 0.5);
+    }
+
+    .match-dropdown {
+      width: 200px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      outline: none;
+      text-align: center;
+    }
+
+    .match-dropdown:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+    }
+
+    .match-dropdown option {
+      background: #1e293b;
+      color: white;
+      padding: 10px;
+    }
+
+    .match-arrow {
+      color: #60a5fa;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    .matching-answers {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .matching-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .match-input {
+      width: 100px;
+      padding: 10px;
+      font-size: 17px;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #111827;
+      color: white;
+      text-align: center;
+      outline: none;
+      margin: 0 10px;
+    }
+
+    .match-input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+    }
+
+    .match-answer-line {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin: 0 5px;
+    }
+
+    .match-table-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .match-table-feedback {
+      display: block;
+    }
   </style>
 </head>
 
@@ -562,6 +699,113 @@
     <div class="question">
       <label>Student Name:</label>
       <input type="text" id="studentName">
+    </div>
+
+    <!-- سؤال الجدول (B) -->
+    <div class="match-table-question">
+      <h3>(B) Choose from column (A) what suits it in both columns (B) and (C):</h3>
+      
+      <table class="matching-table">
+        <thead>
+          <tr>
+            <th>Energy used (A)</th>
+            <th>The item (B)</th>
+            <th>Energy produced (C)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-a">1. Kinetic energy</td>
+            <td class="col-b">
+              <select class="match-dropdown" id="matchB1">
+                <option value="">Select item...</option>
+                <option value="a">Item a</option>
+                <option value="b">Item b</option>
+                <option value="c">Item c</option>
+              </select>
+            </td>
+            <td class="col-c">
+              <select class="match-dropdown" id="matchC1">
+                <option value="">Select energy...</option>
+                <option value="A">A. Thermal energy</option>
+                <option value="B">B. Chemical energy</option>
+                <option value="C">C. Sound energy</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-a">2. Electrical energy</td>
+            <td class="col-b">
+              <select class="match-dropdown" id="matchB2">
+                <option value="">Select item...</option>
+                <option value="a">Item a</option>
+                <option value="b">Item b</option>
+                <option value="c">Item c</option>
+              </select>
+            </td>
+            <td class="col-c">
+              <select class="match-dropdown" id="matchC2">
+                <option value="">Select energy...</option>
+                <option value="A">A. Thermal energy</option>
+                <option value="B">B. Chemical energy</option>
+                <option value="C">C. Sound energy</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-a">3. Solar energy</td>
+            <td class="col-b">
+              <select class="match-dropdown" id="matchB3">
+                <option value="">Select item...</option>
+                <option value="a">Item a</option>
+                <option value="b">Item b</option>
+                <option value="c">Item c</option>
+              </select>
+            </td>
+            <td class="col-c">
+              <select class="match-dropdown" id="matchC3">
+                <option value="">Select energy...</option>
+                <option value="A">A. Thermal energy</option>
+                <option value="B">B. Chemical energy</option>
+                <option value="C">C. Sound energy</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="matching-answers">
+        <h4>Complete the matching statements:</h4>
+        
+        <div class="matching-row">
+          <span class="blank-number">1</span>
+          <span class="match-answer-line">Kinetic energy</span>
+          <span class="match-arrow">→</span>
+          <input type="text" class="match-input" id="matchAnswer1" placeholder="Item">
+          <span class="match-arrow">→</span>
+          <input type="text" class="match-input" id="matchEnergy1" placeholder="Energy">
+        </div>
+        
+        <div class="matching-row">
+          <span class="blank-number">2</span>
+          <span class="match-answer-line">Electrical energy</span>
+          <span class="match-arrow">→</span>
+          <input type="text" class="match-input" id="matchAnswer2" placeholder="Item">
+          <span class="match-arrow">→</span>
+          <input type="text" class="match-input" id="matchEnergy2" placeholder="Energy">
+        </div>
+        
+        <div class="matching-row">
+          <span class="blank-number">3</span>
+          <span class="match-answer-line">Solar energy</span>
+          <span class="match-arrow">→</span>
+          <input type="text" class="match-input" id="matchAnswer3" placeholder="Item">
+          <span class="match-arrow">→</span>
+          <input type="text" class="match-input" id="matchEnergy3" placeholder="Energy">
+        </div>
+      </div>
+      
+      <div class="match-table-feedback" id="fb-match-table"></div>
     </div>
 
     <!-- سؤال 6: What happens if...? -->
@@ -757,7 +1001,7 @@
     function lockHomework() {
       document.getElementById("saveBtn").disabled = true;
       document.getElementById("saveBtn").innerText = "✔️ Homework Submitted";
-      document.querySelectorAll("input, textarea").forEach(el => el.disabled = true);
+      document.querySelectorAll("input, textarea, select").forEach(el => el.disabled = true);
     }
 
     function generateImage() {
@@ -789,13 +1033,20 @@
         imageBlank2: "electrical"
       };
 
-      // إجابات سؤال سلسلة الطاقة (يمكن تعديلها)
+      // إجابات سؤال سلسلة الطاقة
       const chainAnswers = {
         chain1: "1",
         chain2: "2",
         chain3: "3",
         chain4: "4",
         chain5: "5"
+      };
+
+      // إجابات سؤال الجدول (يمكن تعديلها حسب الإجابات الصحيحة)
+      const matchAnswers = {
+        matchB1: "a", matchC1: "C", matchAnswer1: "a", matchEnergy1: "C",
+        matchB2: "b", matchC2: "A", matchAnswer2: "b", matchEnergy2: "A",
+        matchB3: "c", matchC3: "B", matchAnswer3: "c", matchEnergy3: "B"
       };
 
       // تصحيح أسئلة الاختيار من متعدد وصح/خطأ
@@ -869,13 +1120,37 @@
         }
       });
 
-      // سؤال "What happens if..." - يمكن تصحيحه يدوياً أو إعطاء درجات تلقائية
+      // تصحيح سؤال الجدول
+      let matchScore = 0;
+      let matchFeedback = "";
+
+      Object.keys(matchAnswers).forEach((matchId, index) => {
+        const input = document.getElementById(matchId);
+        if (input) {
+          const userAnswer = input.value.trim();
+          const correctAnswer = matchAnswers[matchId];
+
+          if (userAnswer === correctAnswer) {
+            matchScore++;
+            if (index % 4 === 0) { // عرض كل 4 إجابات كمجموعة
+              const groupNum = Math.floor(index / 4) + 1;
+              matchFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Match ${groupNum}: Correct</div>`;
+            }
+          } else {
+            if (index % 4 === 0) {
+              const groupNum = Math.floor(index / 4) + 1;
+              matchFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ Match ${groupNum}: Wrong (Check your answers)</div>`;
+            }
+          }
+        }
+      });
+
+      // سؤال "What happens if..."
       const whatIf1 = document.getElementById("whatIf1").value.trim();
       const whatIf2 = document.getElementById("whatIf2").value.trim();
       let whatIfScore = 0;
       let whatIfFeedback = "";
 
-      // إعطاء درجة إذا كان الطالب كتب إجابة (يمكن تعديل المعايير)
       if (whatIf1.length > 10) {
         whatIfScore++;
         whatIfFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ Question 1: Answer provided (manual check needed)</div>`;
@@ -891,7 +1166,7 @@
       }
 
       // إضافة النتائج إلى الدرجة الكلية
-      score += fillScore + imageFillScore + chainScore + whatIfScore;
+      score += fillScore + imageFillScore + chainScore + whatIfScore + (matchScore / 4); // 4 إجابات لكل سؤال مطابقة
 
       // عرض التغذية الراجعة
       document.getElementById("fb-fill").innerHTML =
@@ -906,8 +1181,11 @@
       document.getElementById("fb-what-if").innerHTML =
         `<strong>"What happens if..." score: ${whatIfScore}/2</strong><br>` + whatIfFeedback;
 
+      document.getElementById("fb-match-table").innerHTML =
+        `<strong>Matching table score: ${Math.floor(matchScore / 4)}/3</strong><br>` + matchFeedback;
+
       document.getElementById("imgName").textContent = name;
-      document.getElementById("imgScore").textContent = score + " / 15";
+      document.getElementById("imgScore").textContent = score.toFixed(1) + " / 20";
 
       const now = new Date();
       const dateStr = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
@@ -944,7 +1222,7 @@
           document.getElementById('backBtn').style.display = 'inline-block';
 
           // إعادة تعيين الفيدباك للإجابات
-          document.querySelectorAll('.feedback, .blank-feedback, .image-fill-feedback, .energy-chain-feedback, .what-if-feedback').forEach(fb => {
+          document.querySelectorAll('.feedback, .blank-feedback, .image-fill-feedback, .energy-chain-feedback, .what-if-feedback, .match-table-feedback').forEach(fb => {
             fb.innerHTML = "";
             fb.style.color = "";
           });
