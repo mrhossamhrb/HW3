@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Second Semester - الدرس الأول</title>
+<title>Second_Semester_Unit4_concept_1_Lesson1</title>
 <style>
   body {
     font-family: "Segoe UI", Tahoma, sans-serif;
@@ -128,27 +128,21 @@
     display: block; 
   }
 
-#infoBox {
-  display: none;
-  margin-bottom: 20px;
-  padding: 15px;
-  border-radius: 15px;
-  background: #60a5fa;
-  color: #111827;
-  font-size: 18px;
+#infoBox strong {
+  display: block;              /* الحل الأساسي */
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
-/* إضافة هذا الكلاس الجديد */
-.capturing #infoBox {
-  display: block !important;
-}
 
   .show-correction #infoBox { display: block; }
 </style>
 </head>
 <body>
 
-<header>Second Semester - الدرس الأول</header>
+<header>Second_Semester_Unit4_concept_1_Lesson1</header>
 
 <section>
     <img src="First_Semester.jpg" alt="صورة الدرس">
@@ -200,7 +194,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
-const LOCK_DAYS = 0;
+const LOCK_DAYS = 30;
 const STORAGE_KEY = "homework_locked";
 
 window.onload = function () {
@@ -241,10 +235,8 @@ function generateImage(){
     if(selected && selected.value === answers[q]){
       score++;
       fb.innerHTML="✔️ إجابة صحيحة";
-      fb.style.color = "#10b981";
     }else{
       fb.innerHTML="❌ إجابة خاطئة";
-      fb.style.color = "#ef4444";
     }
   });
 
@@ -256,30 +248,18 @@ function generateImage(){
     now.toLocaleDateString("ar-EG") + " - " + now.toLocaleTimeString("ar-EG");
 
   const area = document.getElementById("printArea");
-  
-  // إضافة كلاس capturing بدلاً من show-correction
-  area.classList.add("capturing");
+  area.classList.add("show-correction");
 
   html2canvas(area).then(canvas=>{
     const link = document.createElement("a");
-    link.download = "homework_" + name + ".png";
+    link.download = "homework.png";
     link.href = canvas.toDataURL();
     link.click();
 
-    // إزالة الكلاس بعد الانتهاء من التقاط الصورة
-    area.classList.remove("capturing");
-    
-    // إعادة تعيين الفيدباك للإجابات
-    document.querySelectorAll('.feedback').forEach(fb => {
-      fb.innerHTML = "";
-      fb.style.color = "";
-    });
+    area.classList.remove("show-correction");
 
     localStorage.setItem(STORAGE_KEY, Date.now());
     lockHomework();
-  }).catch(error => {
-    console.error("خطأ في إنشاء الصورة:", error);
-    area.classList.remove("capturing");
   });
 }
 </script>
