@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
       color: #f8fafc;
-      text-align: right;
+      text-align: left;
     }
 
     header {
@@ -74,7 +74,7 @@
       padding: 20px;
       background: #3b4252;
       border-radius: 15px;
-      text-align: right;
+      text-align: left;
     }
 
     label {
@@ -94,8 +94,8 @@
       height: 50px;
       line-height: 1.5;
       box-sizing: border-box;
-      text-align: right;
-      direction: rtl;
+      text-align: left;
+      direction: ltr;
       background: #1e293b;
       color: white;
     }
@@ -204,7 +204,7 @@
       display: inline-block;
       vertical-align: middle;
     }
-    
+
     /* تنسيق خاص لسؤال أكمل الفراغات */
     .fill-blank-question {
       background: #2d3748;
@@ -212,68 +212,57 @@
       padding: 25px;
       margin-bottom: 25px;
     }
-    
+
     .fill-blank-question h3 {
       color: #60a5fa;
       margin-bottom: 20px;
       font-size: 22px;
     }
-    
+
     .blank-sentence {
       font-size: 20px;
       line-height: 1.8;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       color: #e2e8f0;
+      text-align: left;
+      direction: ltr;
     }
-    
+
     .blank-input {
       display: inline-block;
       margin: 0 8px;
-      width: 200px;
-      padding: 10px 15px;
-      font-size: 18px;
-      border-radius: 8px;
+      width: 180px;
+      padding: 8px 12px;
+      font-size: 17px;
+      border-radius: 6px;
       border: 2px solid #4f46e5;
       background: #1e293b;
       color: white;
       text-align: center;
       outline: none;
       transition: all 0.3s;
+      direction: ltr;
     }
-    
+
     .blank-input:focus {
       border-color: #60a5fa;
       box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
     }
-    
+
     .blank-number {
       display: inline-block;
       background: #3b82f6;
       color: white;
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       text-align: center;
-      line-height: 30px;
-      margin-left: 10px;
+      line-height: 26px;
+      margin-right: 10px;
       font-weight: bold;
+      margin-bottom: 5px;
     }
-    
-    .blank-row {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    
-    .blank-label {
-      font-size: 18px;
-      color: #cbd5e1;
-      margin-left: 15px;
-      min-width: 200px;
-    }
-    
+
     .blank-feedback {
       display: none;
       padding: 12px;
@@ -282,8 +271,103 @@
       font-weight: bold;
       background: rgba(0, 0, 0, 0.2);
     }
-    
+
     .show-correction .blank-feedback {
+      display: block;
+    }
+
+    /* تنسيق خاص للجمل الإنجليزية */
+    .english-sentence {
+      text-align: left;
+      direction: ltr;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      padding-right: 10px;
+    }
+
+    /* تنسيق خاص لسؤال الصور */
+    .image-fill-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .image-fill-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .images-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .figure-box {
+      text-align: center;
+      margin: 15px;
+      padding: 15px;
+      background: #1e293b;
+      border-radius: 10px;
+      width: 250px;
+    }
+
+    .figure-box img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid #3b82f6;
+      background: #111827;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .figure-label {
+      font-size: 18px;
+      font-weight: bold;
+      color: #60a5fa;
+      margin-bottom: 10px;
+    }
+
+    .figure-placeholder {
+      width: 150px;
+      height: 150px;
+      background: #111827;
+      border: 3px dashed #3b82f6;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #60a5fa;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .blank-sentence-with-image {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #e2e8f0;
+      text-align: left;
+      direction: ltr;
+      padding: 10px 0;
+    }
+
+    .image-fill-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .image-fill-feedback {
       display: block;
     }
   </style>
@@ -291,11 +375,11 @@
 
 <body>
 
-  <header>الوحدة الرابعة - الدرس الأول</header>
+  <header>First_Semester_Unit1_concept_1_Lesson1</header>
 
   <section>
     <img src="First_Semester.jpg" alt="صورة الدرس">
-    <h2>الوحدة الرابعة - المفهوم الأول - الدرس الأول</h2>
+    <h2>First_Semester_Unit1_concept_1_Lesson1</h2>
     <p>حل الواجب التالي بعناية ثم احفظ نتيجتك كصورة!</p>
   </section>
 
@@ -317,95 +401,88 @@
       <label>اسم الطالب:</label>
       <input type="text" id="studentName">
     </div>
-    
-    <!-- سؤال أكمل الفراغات -->
+    <!-- ######################################## -->
+    <!-- سؤال أكمل الفراغات مع صور -->
+    <div class="image-fill-question">
+      <h3>8. Look at the following figures, then complete the sentences:</h3>
+      <div class="images-container">
+        <div class="figure-box">
+          <img src="battery.jpg" alt="بطارية">
+          <div class="figure-label">Figure (1)</div>
+        </div>
+
+        <div class="figure-box">
+          <img src="lamp.jpg" alt="lamp">
+          <div class="figure-label">Figure (2)</div>
+        </div>
+      </div>
+
+      <div class="blank-sentence-with-image">
+        <span class="blank-number">1</span>
+        Figure (1) stores
+        <input type="text" class="blank-input" id="imageBlank1" placeholder="......">
+        energy.
+      </div>
+
+      <div class="blank-sentence-with-image">
+        <span class="blank-number">2</span>
+        Figure (2) needs a source that produces
+        <input type="text" class="blank-input" id="imageBlank2" placeholder="......">
+        energy to be operated.
+      </div>
+      <div class="image-fill-feedback" id="fb-image-fill"></div>
+    </div>
+    <!-- ######################################## -->
+    <!-- سؤال أكمل الفراغات (مع فراغ واحد) -->
     <div class="fill-blank-question">
-      <h3>سؤال أكمل الفراغات</h3>
-      
+      <h3>4. Complete the following sentences:</h3>
+
       <div class="blank-sentence">
         <span class="blank-number">1</span>
-        الهيليوم هو عنصر 
-        <input type="text" class="blank-input" id="blank1" placeholder="...">
-        ولا يتفاعل بسهولة مع العناصر الأخرى.
+        The energy produced from the battery and used to operate a toy car is
+        <input type="text" class="blank-input" id="blank1" placeholder="......">energy.
       </div>
-      
+      <!-- ######################################## -->
+      <!-- سؤال أكمل الفراغات (مع فراغين) -->
       <div class="blank-sentence">
         <span class="blank-number">2</span>
-        تستخدم المناطيد غاز 
-        <input type="text" class="blank-input" id="blank2" placeholder="...">
-        لأنه أخف من الهواء.
+        When you press on the soap dispenser,
+        <input type="text" class="blank-input" id="blank2" placeholder="......">
+        energy stored in its spring is converted into
+        <input type="text" class="blank-input" id="blank3" placeholder="......">
+        energy that moves the soap upward.
       </div>
-      
-      <div class="blank-sentence">
-        <span class="blank-number">3</span>
-        يتكون الماء من ذرتي 
-        <input type="text" class="blank-input" id="blank3" placeholder="...">
-        وذرة واحدة من الأكسجين.
-      </div>
-      
-      <div class="blank-row">
-        <div class="blank-label">4 - العدد الذري للهيدروجين هو:</div>
-        <input type="text" class="blank-input" id="blank4" placeholder="...">
-      </div>
-      
-      <div class="blank-row">
-        <div class="blank-label">5 - الصيغة الكيميائية للماء هي:</div>
-        <input type="text" class="blank-input" id="blank5" placeholder="...">
-      </div>
-      
       <div class="blank-feedback" id="fb-fill"></div>
     </div>
-    
+    <!-- ######################################## -->
     <!-- اختيار من متعدد (4 خيارات) -->
     <div class="question">
-      <h3>1) الهيليوم أخف من الهواء يعتبر:</h3>
-      <label><input type="radio" name="q1" value="a"> خاصية فيزيائية</label>
-      <label><input type="radio" name="q1" value="b"> خاصية كيميائية</label>
-      <label><input type="radio" name="q1" value="c"> تغير كيميائي</label>
-      <label><input type="radio" name="q1" value="d"> تغير فيزيائي</label>
+      <h3>1) Helium is lighter than air; therefore:</h3>
+      <label><input type="radio" name="q1" value="a">physical property</label>
+      <label><input type="radio" name="q1" value="b">chemical property</label>
+      <label><input type="radio" name="q1" value="c">chemical change</label>
+      <label><input type="radio" name="q1" value="d">physical change</label>
       <div class="feedback" id="f1"></div>
     </div>
-    
-    <div class="question">
-      <h3>2) تملأ المناطيد بغاز:</h3>
-      <label><input type="radio" name="q2" value="a"> الأكسجين</label>
-      <label><input type="radio" name="q2" value="b"> الهيليوم</label>
-      <label><input type="radio" name="q2" value="c"> النيتروجين</label>
-      <label><input type="radio" name="q2" value="d"> الهيدروجين</label>
-      <div class="feedback" id="f2"></div>
-    </div>
-    
+    <!-- ######################################## -->
     <!-- اختيار من متعدد (3 خيارات) -->
     <div class="question">
-      <h3>3) أي مما يلي يعتبر عنصرًا:</h3>
-      <label><input type="radio" name="q3" value="a"> الماء</label>
-      <label><input type="radio" name="q3" value="b"> الهيدروجين</label>
-      <label><input type="radio" name="q3" value="c"> ثاني أكسيد الكربون</label>
+      <h3>3) Which of the following is considered an element:</h3>
+      <label><input type="radio" name="q3" value="a">Water</label>
+      <label><input type="radio" name="q3" value="b">hydrogen</label>
+      <label><input type="radio" name="q3" value="c">carbon dioxide</label>
       <div class="feedback" id="f3"></div>
     </div>
-    
-    <div class="question">
-      <h3>4) العدد الذري يمثل عدد:</h3>
-      <label><input type="radio" name="q4" value="a"> الإلكترونات</label>
-      <label><input type="radio" name="q4" value="b"> البروتونات</label>
-      <label><input type="radio" name="q4" value="c"> النيوترونات</label>
-      <div class="feedback" id="f4"></div>
-    </div>
-    
+    <!-- ######################################## -->
     <!-- صح أو خطأ -->
     <div class="question">
-      <h3>5) الهيليوم غاز خامل ولا يتفاعل بسهولة:</h3>
-      <label><input type="radio" name="q5" value="true"> صحيح</label>
-      <label><input type="radio" name="q5" value="false"> خطأ</label>
+      <h3>5) Helium is an inert gas and does not react easily:</h3>
+      <label><input type="radio" name="q5" value="true"> true</label>
+      <label><input type="radio" name="q5" value="false"> false</label>
       <div class="feedback" id="f5"></div>
     </div>
-    
-    <div class="question">
-      <h3>6) الماء مركب كيميائي:</h3>
-      <label><input type="radio" name="q6" value="true"> صحيح</label>
-      <label><input type="radio" name="q6" value="false"> خطأ</label>
-      <div class="feedback" id="f6"></div>
-    </div>
+    <!-- ######################################## -->
+
 
     <button id="saveBtn" onclick="generateImage()">📸 حفظ الواجب كصورة</button>
 
@@ -452,26 +529,27 @@
       let score = 0;
       const answers = {
         q1: "a",
-        q2: "b",
         q3: "b",
-        q4: "b",
-        q5: "true",
-        q6: "true"
+        q5: "true"
       };
-      
+
       // إجابات سؤال أكمل الفراغات
       const blankAnswers = {
-        blank1: "خامل",
-        blank2: "الهيليوم",
-        blank3: "هيدروجين",
-        blank4: "1",
-        blank5: "H2O"
+        blank1: "electrical",
+        blank2: "potential",
+        blank3: "kinetic"
+      };
+
+      // إجابات سؤال الصور
+      const imageBlankAnswers = {
+        imageBlank1: "chemical",
+        imageBlank2: "electrical"
       };
 
       // تصحيح أسئلة الاختيار من متعدد وصح/خطأ
-      Object.keys(answers).forEach((q, i) => {
+      Object.keys(answers).forEach((q) => {
         const selected = document.querySelector(`input[name="${q}"]:checked`);
-        const fb = document.getElementById("f" + (i + 1));
+        const fb = document.getElementById("f" + q.charAt(1)); // q1 -> f1, q3 -> f3, q5 -> f5
         if (selected && selected.value === answers[q]) {
           score++;
           fb.innerHTML = "✔️ إجابة صحيحة";
@@ -482,30 +560,56 @@
         }
       });
 
-      // تصحيح سؤال أكمل الفراغات
+      // تصحيح سؤال أكمل الفراغات العادي
       let fillScore = 0;
       let fillFeedback = "";
-      
+
       Object.keys(blankAnswers).forEach((blankId, index) => {
         const input = document.getElementById(blankId);
-        const userAnswer = input.value.trim().toLowerCase();
-        const correctAnswer = blankAnswers[blankId].toLowerCase();
-        
-        if (userAnswer === correctAnswer) {
-          fillScore++;
-          fillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ الفراغ ${index + 1}: صحيح</div>`;
-        } else {
-          fillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ الفراغ ${index + 1}: خطأ (الإجابة الصحيحة: ${blankAnswers[blankId]})</div>`;
+        if (input) {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = blankAnswers[blankId].toLowerCase();
+
+          if (userAnswer === correctAnswer) {
+            fillScore++;
+            fillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ الفراغ ${index + 1}: صحيح</div>`;
+          } else {
+            fillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ الفراغ ${index + 1}: خطأ (الإجابة الصحيحة: ${blankAnswers[blankId]})</div>`;
+          }
         }
       });
-      
-      // إضافة نتيجة الفراغات إلى الدرجة الكلية
-      score += fillScore;
-      document.getElementById("fb-fill").innerHTML = 
-        `<strong>نتيجة أسئلة الفراغات: ${fillScore}/5</strong><br>` + fillFeedback;
+
+      // تصحيح سؤال أكمل الفراغات مع صور
+      let imageFillScore = 0;
+      let imageFillFeedback = "";
+
+      Object.keys(imageBlankAnswers).forEach((blankId, index) => {
+        const input = document.getElementById(blankId);
+        if (input) {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = imageBlankAnswers[blankId].toLowerCase();
+
+          if (userAnswer === correctAnswer) {
+            imageFillScore++;
+            imageFillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ الفراغ ${index + 1}: صحيح</div>`;
+          } else {
+            imageFillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ الفراغ ${index + 1}: خطأ (الإجابة الصحيحة: ${imageBlankAnswers[blankId]})</div>`;
+          }
+        }
+      });
+
+      // إضافة النتائج إلى الدرجة الكلية
+      score += fillScore + imageFillScore;
+
+      // عرض التغذية الراجعة
+      document.getElementById("fb-fill").innerHTML =
+        `<strong>نتيجة أسئلة الفراغات: ${fillScore}/3</strong><br>` + fillFeedback;
+
+      document.getElementById("fb-image-fill").innerHTML =
+        `<strong>نتيجة أسئلة الصور: ${imageFillScore}/2</strong><br>` + imageFillFeedback;
 
       document.getElementById("imgName").textContent = name;
-      document.getElementById("imgScore").textContent = score + " / 11";
+      document.getElementById("imgScore").textContent = score + " / 8";
 
       const now = new Date();
       // تنسيق التاريخ بشكل مختصر
@@ -543,7 +647,7 @@
           document.getElementById('backBtn').style.display = 'inline-block';
 
           // إعادة تعيين الفيدباك للإجابات
-          document.querySelectorAll('.feedback, .blank-feedback').forEach(fb => {
+          document.querySelectorAll('.feedback, .blank-feedback, .image-fill-feedback').forEach(fb => {
             fb.innerHTML = "";
             fb.style.color = "";
           });
@@ -562,4 +666,5 @@
     }
   </script>
 </body>
+
 </html>

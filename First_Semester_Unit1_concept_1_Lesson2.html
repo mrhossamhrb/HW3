@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
       color: #f8fafc;
-      text-align: center;
+      text-align: right;
     }
 
     header {
@@ -94,8 +94,10 @@
       height: 50px;
       line-height: 1.5;
       box-sizing: border-box;
-      text-align: right;
-      direction: rtl;
+      text-align: left;
+      direction: ltr;
+      background: #1e293b;
+      color: white;
     }
 
     input[type=radio] {
@@ -130,6 +132,9 @@
       display: none;
       font-weight: bold;
       margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.2);
     }
 
     .show-correction .feedback {
@@ -199,22 +204,103 @@
       display: inline-block;
       vertical-align: middle;
     }
+
+    /* تنسيق خاص لسؤال أكمل الفراغات */
+    .fill-blank-question {
+      background: #2d3748;
+      border-right: 5px solid #3b82f6;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .fill-blank-question h3 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .blank-sentence {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+      text-align: left;
+      direction: ltr;
+    }
+
+    .blank-input {
+      display: inline-block;
+      margin: 0 8px;
+      width: 180px;
+      padding: 8px 12px;
+      font-size: 17px;
+      border-radius: 6px;
+      border: 2px solid #4f46e5;
+      background: #1e293b;
+      color: white;
+      text-align: center;
+      outline: none;
+      transition: all 0.3s;
+      direction: ltr;
+    }
+
+    .blank-input:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    }
+
+    .blank-number {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 26px;
+      margin-right: 10px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .blank-feedback {
+      display: none;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .show-correction .blank-feedback {
+      display: block;
+    }
+
+    /* تنسيق خاص للجمل الإنجليزية */
+    .english-sentence {
+      text-align: left;
+      direction: ltr;
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      padding-right: 10px;
+    }
   </style>
 </head>
 
 <body>
 
-  <header>Second_Semester_Unit4_concept_1_Lesson1</header>
+  <header>First_Semester_Unit1_concept_1_Lesson1</header>
 
   <section>
     <img src="First_Semester.jpg" alt="صورة الدرس">
-    <h2>Second_Semester_Unit4_concept_1_Lesson1</h2>
+    <h2>First_Semester_Unit1_concept_1_Lesson1</h2>
     <p>حل الواجب التالي بعناية ثم احفظ نتيجتك كصورة!</p>
   </section>
 
   <div class="container" id="printArea">
 
-    <h1>H.W</h1>
+    <h1>الواجب المنزلي</h1>
 
     <div id="loading">⏳ جاري حفظ الصورة...</div>
 
@@ -230,51 +316,57 @@
       <label>اسم الطالب:</label>
       <input type="text" id="studentName">
     </div>
-    <!-- اختار  من 4  -->
+    <!-- ######################################## -->
+    <!-- سؤال أكمل الفراغات (مع فراغ واحد) -->
+    <div class="fill-blank-question">
+      <h3>4. أكمل الجمل التالية:</h3>
+
+      <div class="blank-sentence">
+        <span class="blank-number">1</span>
+        The energy produced from the battery and used to operate a toy car is
+        <input type="text" class="blank-input" id="blank1" placeholder="......">energy.
+      </div>
+      <!-- ######################################## -->
+      <!-- سؤال أكمل الفراغات (مع فراغين) -->
+      <div class="blank-sentence">
+        <span class="blank-number">2</span>
+        When you press on the soap dispenser,
+        <input type="text" class="blank-input" id="blank2" placeholder="......">
+        energy stored in its spring is converted into
+        <input type="text" class="blank-input" id="blank3" placeholder="......">
+        energy that moves the soap upward.
+      </div>
+      <div class="blank-feedback" id="fb-fill"></div>
+    </div>
+    <!-- ######################################## -->
+    <!-- اختيار من متعدد (4 خيارات) -->
     <div class="question">
-      <h3>1) Helium is lighter than air</h3>
-      <label><input type="radio" name="q1" value="a"> a physical property</label>
-      <label><input type="radio" name="q1" value="b"> a chemical property</label>
-      <label><input type="radio" name="q1" value="c"> a chemical property</label>
-      <label><input type="radio" name="q1" value="d"> a chemical property</label>
+      <h3>1) الهيليوم أخف من الهواء يعتبر:</h3>
+      <label><input type="radio" name="q1" value="a"> خاصية فيزيائية</label>
+      <label><input type="radio" name="q1" value="b"> خاصية كيميائية</label>
+      <label><input type="radio" name="q1" value="c"> تغير كيميائي</label>
+      <label><input type="radio" name="q1" value="d"> تغير فيزيائي</label>
       <div class="feedback" id="f1"></div>
     </div>
+    <!-- ######################################## -->
+    <!-- اختيار من متعدد (3 خيارات) -->
     <div class="question">
-      <h3>2) Blimps are filled with</h3>
-      <label><input type="radio" name="q2" value="a"> oxygen</label>
-      <label><input type="radio" name="q2" value="b"> helium</label>
-      <label><input type="radio" name="q2" value="c"> oxygen</label>
-      <label><input type="radio" name="q2" value="d"> helium</label>
-      <div class="feedback" id="f2"></div>
+      <h3>3) أي مما يلي يعتبر عنصرًا:</h3>
+      <label><input type="radio" name="q3" value="a"> الماء</label>
+      <label><input type="radio" name="q3" value="b"> الهيدروجين</label>
+      <label><input type="radio" name="q3" value="c"> ثاني أكسيد الكربون</label>
+      <div class="feedback" id="f3"></div>
     </div>
-    <!-- اختار  من 3  -->
+    <!-- ######################################## -->
+    <!-- صح أو خطأ -->
     <div class="question">
-      <h3>3) Helium is lighter than air</h3>
-      <label><input type="radio" name="q3" value="a"> a physical property</label>
-      <label><input type="radio" name="q3" value="b"> a chemical property</label>
-      <label><input type="radio" name="q3" value="c"> a chemical property</label>
-      <div class="feedback" id="f1"></div>
+      <h3>5) الهيليوم غاز خامل ولا يتفاعل بسهولة:</h3>
+      <label><input type="radio" name="q5" value="true"> صحيح</label>
+      <label><input type="radio" name="q5" value="false"> خطأ</label>
+      <div class="feedback" id="f5"></div>
     </div>
-    <div class="question">
-      <h3>4) Blimps are filled with</h3>
-      <label><input type="radio" name="q4" value="a"> oxygen</label>
-      <label><input type="radio" name="q4" value="b"> helium</label>
-      <label><input type="radio" name="q4" value="c"> oxygen</label>
-      <div class="feedback" id="f2"></div>
-    </div>
-    <!-- صح ام خطاء  -->
-    <div class="question">
-      <h3>5) Blimps are filled with</h3>
-      <label><input type="radio" name="q5" value="true">True</label>
-      <label><input type="radio" name="q5" value="false">False</label>
-      <div class="feedback" id="f2"></div>
-    </div>
-        <div class="question">
-      <h3>6) Blimps are filled with</h3>
-      <label><input type="radio" name="q6" value="true">True</label>
-      <label><input type="radio" name="q6" value="false">False</label>
-      <div class="feedback" id="f2"></div>
-    </div>
+    <!-- ######################################## -->
+
 
     <button id="saveBtn" onclick="generateImage()">📸 حفظ الواجب كصورة</button>
 
@@ -319,13 +411,29 @@
       }
 
       let score = 0;
-      const answers =
-      {
+      const answers = {
         q1: "a",
         q2: "b",
+        q3: "b",
+        q4: "b",
+        q5: "true",
+        q6: "true"
       };
 
+      // إجابات سؤال أكمل الفراغات (يمكن تعديلها حسب الإجابات الصحيحة)
+      const blankAnswers = {
+        blank1: "electrical",
+        blank2: "potential",
+        blank3: "kinetic",
+        blank4: "electrical",
+        blank5: "thermal",
+        blank6: "mechanical",
+        blank7: "thermal",
+        blank8: "heat",
+        blank9: "chemical"
+      };
 
+      // تصحيح أسئلة الاختيار من متعدد وصح/خطأ
       Object.keys(answers).forEach((q, i) => {
         const selected = document.querySelector(`input[name="${q}"]:checked`);
         const fb = document.getElementById("f" + (i + 1));
@@ -339,13 +447,36 @@
         }
       });
 
+      // تصحيح سؤال أكمل الفراغات
+      let fillScore = 0;
+      let fillFeedback = "";
+      let fillCorrectCount = 0;
+
+      Object.keys(blankAnswers).forEach((blankId, index) => {
+        const input = document.getElementById(blankId);
+        const userAnswer = input.value.trim().toLowerCase();
+        const correctAnswer = blankAnswers[blankId].toLowerCase();
+
+        if (userAnswer === correctAnswer) {
+          fillCorrectCount++;
+          fillFeedback += `<div style="color:#10b981; margin:5px 0;">✔️ الفراغ ${index + 1}: صحيح</div>`;
+        } else {
+          fillFeedback += `<div style="color:#ef4444; margin:5px 0;">❌ الفراغ ${index + 1}: خطأ (الإجابة الصحيحة: ${blankAnswers[blankId]})</div>`;
+        }
+      });
+
+      // إضافة نتيجة الفراغات إلى الدرجة الكلية (كل فراغ = 1 نقطة)
+      score += fillCorrectCount;
+      document.getElementById("fb-fill").innerHTML =
+        `<strong>نتيجة أسئلة الفراغات: ${fillCorrectCount}/9</strong><br>` + fillFeedback;
+
       document.getElementById("imgName").textContent = name;
-      document.getElementById("imgScore").textContent = score + " / 3";
+      document.getElementById("imgScore").textContent = score + " / 15";
 
       const now = new Date();
       // تنسيق التاريخ بشكل مختصر
       const dateStr = `${now.getFullYear()}/${now.getMonth() + 1}/${now.getDate()}`;
-      const timeStr = `${now.getHours()}:${now.getMinutes()}`;
+      const timeStr = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
       document.getElementById("imgDate").textContent = dateStr + " " + timeStr;
 
       const area = document.getElementById("printArea");
@@ -378,7 +509,7 @@
           document.getElementById('backBtn').style.display = 'inline-block';
 
           // إعادة تعيين الفيدباك للإجابات
-          document.querySelectorAll('.feedback').forEach(fb => {
+          document.querySelectorAll('.feedback, .blank-feedback').forEach(fb => {
             fb.innerHTML = "";
             fb.style.color = "";
           });
@@ -393,7 +524,7 @@
           document.getElementById('saveBtn').style.display = 'block';
           document.getElementById('backBtn').style.display = 'inline-block';
         });
-      }, 150);
+      }, 300);
     }
   </script>
 </body>
